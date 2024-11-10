@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const nicks = [];
 
+app.use(express.json());
+
 app.post("/", (req, res) => {
     const { value } = req.body;
     if (!nicks.includes(value)) {
@@ -13,7 +15,7 @@ app.post("/", (req, res) => {
 
 app.get("/obter", (req, res) => {
     if (app.get("nickVar")) {
-        res.end(app.get("nickVar"));
+        res.json(app.get("nickVar"));
     }else {
         res.status(400).send("Erro: nick não obtido.");
     }
