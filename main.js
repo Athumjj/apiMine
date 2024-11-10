@@ -8,6 +8,8 @@ app.post("/", (req, res) => {
     if (value) {
         app.set("nickVar", value);
         res.json({ valuea: "sucess" });
+    }else {
+        res.status(400).json({ erro: "nick não encontrado." });
     }
 });
 
