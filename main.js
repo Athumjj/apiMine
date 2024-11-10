@@ -6,7 +6,7 @@ app.use(express.json());
 app.post("/", (req, res) => {
     const { value } = req.body;
     app.set("nickVar", value);
-    res.json("sucess");
+    res.json({ value: "sucess" });
 });
 
 app.get("/obter", (req, res) => {
@@ -14,7 +14,7 @@ app.get("/obter", (req, res) => {
     if (nicke) {
         res.end(nicke);
     }else {
-        res.status(400).send("Erro: nick não obtido.");
+        res.status(400).json({ erro: "nick não obtido." });
     }
 });
 
