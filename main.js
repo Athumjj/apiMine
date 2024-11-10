@@ -10,12 +10,12 @@ app.post("/", (req, res) => {
         nicks.push(value);
         app.set("nickVar", nicks);
     }
-    res.end("sucess");
+    res.json("sucess");
 });
 
 app.get("/obter", (req, res) => {
     if (app.get("nickVar")) {
-        res.json(app.get("nickVar"));
+        res.end(app.get("nickVar"));
     }else {
         res.status(400).send("Erro: nick não obtido.");
     }
