@@ -16,7 +16,7 @@ app.post("/", (req, res) => {
 app.get("/obter", (req, res) => {
     const nicke = app.get("nickVar");
     if (nicke) {
-        res.end(nicke);
+        res.end(String(nicke));
     }else {
         res.status(400).send("Erro: nick não obtido.");
     }
